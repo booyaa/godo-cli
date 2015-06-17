@@ -29,8 +29,8 @@ func (c *SizesCommand) Run(args []string) int {
 	}
 
 	for _, size := range sizes {
-		c.Ui.Output(fmt.Sprintf("slug:%5s memory:%6dmb vcpus:%2d disk:%3dgb",
-			size.Slug, size.Memory, size.Vcpus, size.Disk))
+		c.Ui.Output(fmt.Sprintf("slug:%5s memory:%6dmb vcpus:%2d disk:%3dgb hourly rate: %2f",
+			size.Slug, size.Memory, size.Vcpus, size.Disk, size.PriceHourly))
 	}
 
 	return 0
