@@ -4,8 +4,10 @@ import (
 	"code.google.com/p/goauth2/oauth"
 	"fmt"
 	"github.com/digitalocean/godo"
-	"github.com/masayukioguni/godo-cli/command"
+	// "github.com/masayukioguni/godo-cli/command"
+	"github.com/booyaa/godo-cli/command"
 	"github.com/masayukioguni/godo-cli/config"
+	// "github.com/booyaa/godo-cli/config"
 	"github.com/mitchellh/cli"
 	"os"
 )
@@ -13,12 +15,12 @@ import (
 var GitCommit string
 
 const ApplicationName = "godo-cli"
-const Version = "0.0.6"
+const Version = "0.0.7"
 
 func getClinet(accessToken string) *godo.Client {
 
 	t := &oauth.Transport{
-		Token: &oauth.Token{AccessToken: accessToken},
+		Token: &oauth.Token{AccessToken: os.Getenv("DO_PAT")},
 	}
 	return godo.NewClient(t.Client())
 
